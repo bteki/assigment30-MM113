@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Page title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <script src="http://cdn.jsdelivr.net/jquery/3.2.1/jquery.min.js"></script>
+    <link href="Dice.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="selector">
+            <ul>
+                <li class="dicetype" id="D2" onclick="changeCSS('1')" ;>D2</li>
+                <li class="dicetype" id="D6" onclick="changeCSS('2')" ;>D6</li>
+                <li class="dicetype" id="D10" onclick="changeCSS('3')" ;>D10</li>
+                <li class="dicetype" id="D20" onclick="changeCSS('4')" ;>D20</li>
+            </ul>
+        </div>
+        <!-- Container -->
+        <div id="rollWindow">
+            <!-- where the die is visable rolled--><span id="rollText">1</span>
+        </div>
+        <!-- end of div RollWindow-->
+
+        <br />
+        <div id="ButtonBox">
+            <button class="rollbutton" id="rollbutton">ROLL!</button>
+        </div>
+        <script>
+            var result = 0;
+            var dieTop = 6;
+            document.getElementById('rollbutton').addEventListener("click", rolldice);
+
+            function rolldice() {
+                /* alert("dice has rolled"); */
+                result = ((Math.random() * (dieTop)) + 1);
+                result = Math.floor(result);
+                document.getElementById('rollWindow').innerHTML = result;
+            }
+
+            function changeCSS(Cssbutton) {
+                switch (Cssbutton) {
+                    case '1':
+                        document.getElementById('rollWindow').style.cssText = "background-color:red; color:white; border-radius:100px";
+                        break;
+                    case '2':
+                        document.getElementById('rollWindow').style.cssText = "background-color:yellow; color:black; border-radius:100px";
+                        break;
+                    case '3':
+                        document.getElementById('rollWindow').style.cssText = "background-color:green; color:white; border-radius:100px";
+                        break;
+                    case '4':
+                        document.getElementById('rollWindow').style.cssText = "background-color:blue; color:black; border-radius:100px";
+                        break;
+                    default:
+                        alert("sorry! there is a problem with the program")
+                }
+                //  document.getElementById('rollWindow').style.cssText = "background-color:blue; color:white; border-radius:100px";
+            }
+            // function changeCSSTwo() {
+            //     document.getElementById('rollWindow').style.cssText = "background-color:blue; color:white; border-radius:100px";
+            // }
+            // function changeCSSThird() {
+            //     document.getElementById('rollWindow').style.cssText = "background-color:blue; color:white; border-radius:100px";
+            // }
+            // function changeCSSFourth() {
+            //     document.getElementById('rollWindow').style.cssText = "background-color:blue; color:white; border-radius:100px";
+            // }
+        </script>
+
+</body>
+
+</html>
